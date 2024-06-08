@@ -1,0 +1,27 @@
+Hola :D
+
+Bueno, ahí les dejé la parte del frontend de la página (Estoy seguro que Eddie cambia algo), y las funciones de JS que envían el código al backend. Toca cambiar cosas pero para ello necesito que empiecen con el backend xd.  Les dejé lo que a mi parecer debería ser la estructura del FLASK, obviamente falta agregar cosas como los métodos de cada ruta, osea si es POST o que. Pero por ahora les dejo estas recomendaciones:
+
+1. Empiecen creando el LEXER (Ya que creo que esto es lo que debe hacer el botón de verificar el código que propone el profe, osea supongo que es ver si el código a nivel de sintaxis está correcto), según la documentación de PLY, el modulo ".lex", (creo que es así xd), recibe un STRING que es el código, que bajo algunas reglas que definimos anteriormente, verifica y da los tokens a cada una de las partes del código. En la documentación del PLY sale a que reglas me refiero, pero básicamente es decirle al lexer que es para nosotros cada cosa del código.
+
+Cómo se comunicaran el backend con el frontend y viceversa, bueno:
+
+	1. Desde el frontend se pasará un JSON el cual contiene el STRING del código escrito por el usuario.
+	2. Dicho código es analizado por el LEXER, y verifica pues que el código esté bien, luego cuando se analice, se creará un 		diccionario de la siguiente manera
+		
+		diccionario = {
+			'respuesta' : 'respuesta del lexer'
+		} 
+	
+	No sé como lo harán, pero creo que el lexer debería devolver:
+		-En caso de que esté correcto: "El código está correcto".
+		-En caso de que esté incorrecto: "El código tiene error", error que se haya encontrado.
+
+3. Sinceramente no entendí na de como se hace el parser, la buena, lo único que les puedo decir es que desde el frontend cuando se presiona el botón de ejecutar código, sucede lo mismo que en el lexer, y es que paso un json con el código a manera de string, yo recomiendo:
+
+	1. Verificar en el lexer.
+	2. Parsear esa jodia.
+	3. Enviar un JSON con el resultado dado por el parser (Ustedes me dirán como hacen el diccionario y eso).
+
+Listo, esto lo hago porque, el sábado no voy a estar así que no quería estar sin hacer na, si algo está malo, sorry.
+Psdt: Pongan a trabajar a Vladimir.
